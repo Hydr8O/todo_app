@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('auth_app.urls')),
     path('todos/', include('todo_app.urls')),
     path('user/', include('user_profile_app.urls')),
-    path('', views.redirect_signup))
+    path('', views.redirect_signup),
 ]
