@@ -1,0 +1,44 @@
+{% load static %}
+<div class="todo">
+    <div class="todo__content">
+        <div class="todo__title">
+            {{ todo.title }}
+        </div>
+        {% if todo.completed_at %}
+            
+        {% endif %}
+        <div class="todo__options">
+            {% if not todo.completed_at %}
+                <form class="button--form" action="{% url 'todo_app:complete_todo' todo_id=todo.id%}" method="POST">
+                    {% csrf_token %}
+                    <button class="button todo__option">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'todo_app/SVG/sprite.svg' %}#icon-clipboard"></use>
+                        </svg>
+                    </button>
+                </form> 
+                <a class="button todo__option" href="{% url 'todo_app:update_todo' todo_id=todo.id %}">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'todo_app/SVG/sprite.svg' %}#icon-pencil"></use>
+                    </svg>
+                </a>
+            {% else %}
+                <div class="todo__completeon_date">
+                    {{ todo.completed_at }}
+                </div>
+            {% endif %}
+            <form class="button--form" action="{% url 'todo_app:delete_todo' todo_id=todo.id%}" method="POST">
+                {% csrf_token %}
+                <button class="button todo__option">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'todo_app/SVG/sprite.svg' %}#icon-bin"></use>
+                    </svg>
+                </button>
+            </form> 
+        </div>  
+    </div>
+    <div class="todo__memo hidden--memo" style='display: none;'>
+        {{ todo.memo }}
+    </div>
+   
+</div>

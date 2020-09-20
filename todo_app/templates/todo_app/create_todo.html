@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <h3 class="header header--tertiary header--animated">
+        Create Todo
+    </h3>
+    <div class="content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message message--success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form class="form" action="{% url 'todo_app:create_todo' %}" method="POST">
+            {% csrf_token %}
+            {% include 'todo_app/todo_inputs.html' %}
+            <button class="button" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}

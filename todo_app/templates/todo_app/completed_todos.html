@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'todo_app/css/styles.css' %}">
+{% endblock %}
+{% block content %}
+    <h3 class="header--tertiary header header--animated">Completed todos</h3>
+    <section class="content">
+        {% include 'core/messages.html' with messages=messages %}
+        <form class="form" action="{% url 'todo_app:completed_todos' %}" method="GET">
+            <div class="form__form-group">
+                <input class="form__text-input" type="date" name="date" id="date" value="{{ current_date|date:'Y-m-d' }}">
+            </div>
+            <button class="button" type="submit">Show</button>
+        </form>
+        {% if todos|length != 0 %}
+            <div class="todos">
+                {% for todo in todos %}
+                    {% include './todo.html' with todo=todo %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+    
+{% endblock %}

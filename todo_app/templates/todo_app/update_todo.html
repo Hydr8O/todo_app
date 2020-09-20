@@ -1,0 +1,8 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <form class="form" action="{% url 'todo_app:update_todo' todo_id=todo.id %}" method="POST">
+        {% csrf_token %}
+        {% include 'todo_app/todo_inputs.html' with title=todo.title memo=todo.memo%}
+        <button class="button" type="submit">Edit</button>
+    </form>
+{% endblock %}

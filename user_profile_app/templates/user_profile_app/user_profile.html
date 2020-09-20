@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <h3 class="header header--tertiary header--animated">
+        User Profile
+    </h3>
+    <section class="content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message message--success">
+                    {{ message }}
+                </div>   
+            {% endfor %}
+        {% endif %}
+        You have completed {{ n_completed_todos }} todo{{ n_completed_todos|pluralize }} overall
+        Today you have completed {{ n_completed_today }} todo{{ n_completed_today|pluralize }}
+        You complete {{ average_per_day }} todo{{ average_per_day|pluralize }} per day in average
+        <form class="button--form" action="{% url 'user_profile_app:clear_statistics' %}" method="POST">
+            {% csrf_token %}
+            <button class="button" type="submit">
+                Clear statistics
+            </button>
+        </form>
+    </section>
+{% endblock %}

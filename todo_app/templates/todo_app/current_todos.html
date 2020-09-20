@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'todo_app/css/styles.css' %}">
+{% endblock %}
+{% block content %}
+    <h3 class="header--tertiary header header--animated">Current todos</h3>
+    <div class="content">
+        {% include 'core/messages.html' with messages=messages %}
+        {% if todos|length != 0 %}
+            <section class="todos">
+                {% for todo in todos %}
+                    {% include './todo.html' with todo=todo %}
+                {% endfor %}
+            </section>
+        {% endif %}
+    </div>
+{% endblock %}

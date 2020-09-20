@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'auth_app/css/styles.css' %}">
+{% endblock %}
+{% block content %}
+    <h3 class="header header--tertiary header--animated">
+        Signup
+    </h3>
+    <div class="content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message message--error">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form class="form" action="{% url 'auth_app:signup' %}" method="POST">
+            {% csrf_token %}
+            <div class="form__form-group">
+                <label for="email">Email:</label>
+                <input class="form__text-input" type="email" name="email" id="email" required>
+            </div>
+            {% include 'auth_app/credential_fields.html' %}
+            <div class="form__form-group">
+                <label for="confirm">Confirm Password:</label>
+                <input class="form__text-input" type="password" name="confirm" id="confirm" required>
+            </div>
+            <button class="button" type="submit">Sign Up</button>
+        </form> 
+    </div>
+{% endblock %}
