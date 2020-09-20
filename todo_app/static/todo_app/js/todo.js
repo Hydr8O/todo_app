@@ -1,6 +1,3 @@
-stopTransitionOnLoad = () => {
-    document.body.classList.remove('stop-transition')
-};
 
 stopEventBubblingFromTodoOptions = () => {
     const todoOptions = document.querySelectorAll('.todo__option');
@@ -39,7 +36,6 @@ addTodoAppearAnimation = () => {
 
 todos = document.querySelectorAll('.todo');
 
-stopTransitionOnLoad();
 addToggleTodoMemoHandlers();
 stopEventBubblingFromTodoOptions();
 addTodoAppearAnimation();

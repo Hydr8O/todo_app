@@ -69,10 +69,13 @@
     display: none;
 }
 
+
+
 @media screen and (max-width: 768px) {
 
     .container {
         overflow-x: hidden;
+        position: relative;
     }
 
     .nav__list {
@@ -85,11 +88,22 @@
         height: 92vh;
         z-index: 1;
         transform: translateX(100%);
+        transition: transform .3s;
         top: 8vh;
+    }
+
+    .hidden--nav {
+        transform: translateX(0);
     }
 
     .burger {
         display: block;
         cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .nav__list {
+        width: 50%;
     }
 }

@@ -15,17 +15,21 @@
     --light-blue: #daedf4;
     --light-red: #ffcccb;
     --light-green: #CCFFCC;
+    --small-screen: 768px;
+    --smallest-screem: 550px;
 }
 
 
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
     font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
+    height: 100%;
 }
 
 ul {
@@ -50,6 +54,9 @@ ul {
     grid-template-rows: [nav-start] 8vh [nav-end header-start] min-content [header-end content-start] min-content [content-end];
     grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] 1fr [full-end];
     grid-row-gap: 2rem;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .content {
