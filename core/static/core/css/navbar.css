@@ -69,7 +69,11 @@
     display: none;
 }
 
-
+@media screen and (max-width: 1070px) {
+    .nav__list {
+        width: 70%;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
