@@ -1,0 +1,13 @@
+@keyframes fade-in-left {
+    0% {
+        transform: translateX(-2rem);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}

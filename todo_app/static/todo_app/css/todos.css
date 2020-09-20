@@ -1,0 +1,76 @@
+.todos {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+    padding: 2rem 0;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow, .3s;
+    justify-content: center;
+    width: 80%;
+    border: 1.5px solid var(--dark-blue);
+    border-radius: var(--border-radius);
+}
+
+.todo:hover {
+    box-shadow: 0px -5px 29px -14px rgba(0,0,0,0.75);
+}
+
+.todo__content {
+    display: flex;
+    flex: 1;
+    padding: 1rem;
+}
+
+.todo__title {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo__memo {
+    overflow-wrap: break-word;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hidden--memo {
+    animation: hide-memo .3s ease-in forwards;
+}
+
+.showed--memo {
+    animation: show-memo .3s ease-in forwards;
+}
+
+.todo__options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+@keyframes show-memo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide-memo {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
