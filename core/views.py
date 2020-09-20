@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+def redirect_signup(request):
+    return redirect('auth_app:signup')
