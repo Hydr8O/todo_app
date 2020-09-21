@@ -15,7 +15,7 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <form class="form" action="{% url 'auth_app:signup' %}" method="POST">
+        <form class="form form--auth" action="{% url 'auth_app:signup' %}" method="POST">
             {% csrf_token %}
             <div class="form__form-group">
                 <label for="email">Email:</label>

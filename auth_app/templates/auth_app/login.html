@@ -7,18 +7,18 @@
     <h3 class="header header--tertiary header--animated">
         Login
     </h3>
-    <div class="content">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="message message--{{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-        <form class="form" action="{% url 'auth_app:login' %}" method="POST">
-            {% csrf_token %}
-            {% include 'auth_app/credential_fields.html' %}
-            <button class="button" type="submit">Login</button>
-        </form> 
-    </div>
+    <section class="content">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message message--{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form class="form form--auth" action="{% url 'auth_app:login' %}" method="POST">
+                {% csrf_token %}
+                {% include 'auth_app/credential_fields.html' %}
+                <button class="button" type="submit">Login</button>
+            </form> 
+    </section>
 {% endblock %}
