@@ -24,7 +24,7 @@
                 </a>
             {% endif %}
             <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="{% url 'todo_app:create_todo' %}">About</a></li>
+                <li class="nav__item"><a class="nav__link" href="{% url 'about' %}">About</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav__item"><a class="nav__link" href="{% url 'todo_app:current_todos' %}">Current todos</a></li>
                     <li class="nav__item"><a class="nav__link" href="{% url 'todo_app:completed_todos' %}">Completed todos</a></li>

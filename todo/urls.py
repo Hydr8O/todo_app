@@ -23,4 +23,5 @@ urlpatterns = [
     path('todos/', include('todo_app.urls')),
     path('user/', include('user_profile_app.urls')),
     path('', views.redirect_signup),
+    path('about/', views.about, name='about'),
 ]

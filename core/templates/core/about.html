@@ -4,5 +4,29 @@
     <link rel="stylesheet" href="{% static 'todo_app/css/styles.css' %}">
 {% endblock %}
 {% block content %}
-    About
+    <h3 class="header--tertiary header header--animated">About</h3>
+    <section class="content">
+        <div class="about">
+            {% include 'core/messages.html' with messages=messages %}
+            <p class="paragraph">
+                This site is a general todo app. Here you can transfer all your tasks from your mind into todos so that you will not forget something important.
+            </p>
+            <p class="paragraph">
+                You can create, delete and edit todos, mark todos as completed and then take a look at all the tasks you have completed already.
+            </p>
+            <p class="paragraph">
+                If you want to find out how many tasks you have completed overall or average per day you can get this information from your user profile.
+            </p>
+            <div class="registration-call-wrapper">
+                <div class="registration-call">
+                    <p class="paragraph text-center">
+                        Create an account and start using the app right now!
+                    </p>
+                    <a class="button">
+                        Create an account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

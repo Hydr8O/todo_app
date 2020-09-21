@@ -30,6 +30,8 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
     height: 100%;
+    background-color: #eee;
+    line-height: 1.5;
 }
 
 ul {
@@ -51,7 +53,7 @@ ul {
 
 .container {
     display: grid;
-    grid-template-rows: [nav-start] 8vh [nav-end header-start] min-content [header-end content-start] min-content [content-end];
+    grid-template-rows: [nav-start] 8vh [nav-end header-start] min-content [header-end content-start] 1fr [content-end footer-start] min-content [footer-end];
     grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] 1fr [full-end];
     grid-row-gap: 2rem;
     height: 100%;
@@ -62,6 +64,42 @@ ul {
 .content {
     grid-column: center-start / center-end;
     grid-row: content-start / content-end;
+    background-color: white;
+    padding: 2rem;
+}
+
+.paragraph {
+    font-size: 1.8rem;
+}
+
+.paragraph:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.registration-call {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration-call-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .stop-transition * {

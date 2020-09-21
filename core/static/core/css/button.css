@@ -13,11 +13,6 @@
     border: 1px solid transparent;
 }
 
-.button--form {
-    display: flex;
-}
-
 .button:hover {
     background-color: var(--orange);
-    
 }
