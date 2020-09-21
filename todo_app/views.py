@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.utils import timezone
+from django.utils.dateparse import parse_date
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from todo_app.models import Todo
@@ -22,15 +23,17 @@ def show_completed_todos(request):
     date = request.GET.get('date')
     if not date:
         date = timezone.localdate()
+    else:
+        date = parse_date(date)
     todos = Todo.objects.get_completed_by_date(request.user, date)
     if len(todos) == 0:
-        messages.info(request, 'You haven\t completed any todos on this day')
+        messages.info(request, 'You haven\'t completed any todos on this day')
     return render(
         request,
         'todo_app/completed_todos.html',
         {
             'todos': todos,
-            'current_date': timezone.localdate()
+            'current_date': date
         }
     )
 
