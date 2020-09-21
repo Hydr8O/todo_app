@@ -18,6 +18,10 @@ def signup_user(request):
     try:
         created_user = __create_new_user(user_credentials)
         _send_activation_email(created_user, request)
+        messages.success(
+            request, 
+            f'Account with username "{created_user.username}" has been created. You need to activate it by following the link sent to the specified email.'
+        )
         return redirect('auth_app:login')
     except PasswordMismatchException as error:
         messages.error(request, error.message)
